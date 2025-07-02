@@ -20,4 +20,5 @@ MonoBehaviour:
     type: 3}
   MaxStackAmount: 0
   <CanStack>k__BackingField: 0
+  Type: 6
   itemID: 74505746

@@ -40,7 +40,7 @@ namespace KitchenGame.Inventory
             ClearSlot();
         }
 
-        public void SetSlot(SlotItem newItem)
+        public virtual void SetSlot(SlotItem newItem)
         {
             CurrentItem = newItem;
             hasItem = true;
@@ -139,6 +139,16 @@ namespace KitchenGame.Inventory
                     if (hoveredSlot == this)
                         continue;
 
+                    // Check if hovered slot can accept the item
+                    if (hoveredSlot is RestrictedSlot restricted)
+                    {
+                        if (!restricted.GetAllowedTypes().Contains(CurrentItem.itemInfo.Type))
+                        {
+                            Debug.LogWarning($"'{CurrentItem.itemInfo.ItemName}' is not allowed in that slot.");
+                            break; // Cancel transfer
+                        }
+                    }
+
                     if (hoveredSlot.IsEmpty())
                     {
                         hoveredSlot.SetSlot(CurrentItem);
@@ -147,14 +157,26 @@ namespace KitchenGame.Inventory
                     }
                     else
                     {
-                        // Switch slots
-                        SlotItem otherSlotItem = hoveredSlot.CurrentItem;
-                        hoveredSlot.SetSlot(CurrentItem);
-                        SetSlot(otherSlotItem);
+                        // Swap only if other slot accepts this item and vice versa (if both are RestrictedSlots)
+                        bool thisAllowsOther = this is not RestrictedSlot r1 || r1.GetAllowedTypes().Contains(hoveredSlot.CurrentItem.itemInfo.Type);
+                        bool otherAllowsThis = hoveredSlot is not RestrictedSlot r2 || r2.GetAllowedTypes().Contains(CurrentItem.itemInfo.Type);
+
+                        if (thisAllowsOther && otherAllowsThis)
+                        {
+                            SlotItem otherSlotItem = hoveredSlot.CurrentItem;
+                            hoveredSlot.SetSlot(CurrentItem);
+                            SetSlot(otherSlotItem);
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Swap blocked: one of the slots does not accept the other's item.");
+                        }
+                        break;
                     }
                 }
             }
 
+            // Return the dragged graphic to its original position and parent
             slotGraphic.transform.SetParent(transform, false);
             slotGraphic.rectTransform.anchoredPosition = Vector3.zero;
         }

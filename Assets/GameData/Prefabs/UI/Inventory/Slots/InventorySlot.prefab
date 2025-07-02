@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6732068962232544718}
   - component: {fileID: 5347819271380307824}
   - component: {fileID: 55829026846796359}
+  - component: {fileID: 5541368809271728648}
   m_Layer: 0
   m_Name: InventorySlot
   m_TagString: Untagged
@@ -91,12 +92,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 786273205468875132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a2f4791da79204390d43d6c86fb871, type: 3}
+  m_Script: {fileID: 11500000, guid: cf04f883cc577094cb0dc57ebd7a4048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotGraphic: {fileID: 135874706893665582}
   iconImg: {fileID: 6366699245912419046}
   stackAmountText: {fileID: 9117645701133585240}
+--- !u!114 &5541368809271728648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786273205468875132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 0
+  m_AspectRatio: 1
 --- !u!1 &1196315405153876881
 GameObject:
   m_ObjectHideFlags: 0

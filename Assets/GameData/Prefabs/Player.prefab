@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currItemText: {fileID: 4987950381011392325}
-  slot_DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  slot_DefaultColor: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
   slot_HighlightedColor: {r: 0.92156863, g: 1, b: 0, a: 1}
 --- !u!1 &2840700716540194809
 GameObject:
@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 2763087311510842236}
   - component: {fileID: 3329839346954701000}
   - component: {fileID: 1138613129419965909}
+  - component: {fileID: 6765432499495097453}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -563,6 +564,18 @@ MonoBehaviour:
   joint: {fileID: 1368108180413284931}
   bobSpeed: 10
   bobAmount: {x: 0, y: 0.05, z: 0}
+--- !u!114 &6765432499495097453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2840700716540194809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593b88adf2899004d92616b092992122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3041332330463731575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.3254902, g: 0.5019608, b: 0.67058825, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1315,7 +1328,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

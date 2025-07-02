@@ -1,15 +1,18 @@
 using System;
 
-[Serializable]
-public class SlotItem
+namespace KitchenGame.Inventory
 {
-    public SlotItem_SO itemInfo;
-
-    // Stack values
-    public int currentStacks;
-
-    public SlotItem(SlotItem_SO displayInfo)
+    [Serializable]
+    public class SlotItem
     {
-        itemInfo = displayInfo;
+        public SlotItem_SO itemInfo;
+
+        // Stack values
+        public int currentStacks;
+
+        public SlotItem(SlotItem_SO displayInfo)
+        {
+            itemInfo = displayInfo;
+        }
     }
 }
