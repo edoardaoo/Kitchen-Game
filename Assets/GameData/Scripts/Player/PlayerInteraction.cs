@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using KitchenGame.Inventory;
+using KitchenGame.Runtime;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
 
     // Internal values
     Camera cam;
-    ItemInteraction currInteraction;
+    IInteractable currInteraction;
     PlayerInventoryManager playerInventory;
 
     // Consts
@@ -40,14 +40,16 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit, interactionMaxDistance, interactionLayer))
         {
-            currInteraction = hit.transform.GetComponentInParent<ItemInteraction>();
-            SetItemNameText(currInteraction.GetItemName(), currInteraction.GetItemStacks(), currInteraction.CanPickItem());
+            if (hit.transform.TryGetComponent(out IInteractable interactable) || hit.transform.parent.TryGetComponent(out interactable))
+            {
+                currInteraction = interactable;
+                SetCurrentInteractionText(interactable.GetInteractionLabel(), true);
+                return;
+            }
         }
-        else
-        {
-            currInteraction = null;
-            ClearItemNameText();
-        }
+
+        currInteraction = null;
+        ClearItemNameText();
     }
 
     /// <summary>
@@ -57,20 +59,26 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (ctx.performed)
         {
-            if (!currInteraction)
+            if (currInteraction == null)
                 return;
 
             currInteraction.Interact(playerInventory);
         }        
     }
 
-    void SetItemNameText(string itemName, int stacks, bool canPick)
+    void SetCurrentInteractionText(string itemName, bool canPick)
     {
         string canPickText = canPick ? $"{InteractionInputText_Color}{InteractionInputText}" : "" ;
 
-        itemNameText.text = $"{itemName} ({stacks}) {canPickText}";
+        itemNameText.text = $"{itemName} {canPickText}";
     }
 
     void ClearItemNameText()
-        => itemNameText.text = "";
+    {
+        // Avoid cleaning multiple times
+        if (string.IsNullOrEmpty(itemNameText.text))
+            return;
+
+        itemNameText.text = "";
+    }
 }
