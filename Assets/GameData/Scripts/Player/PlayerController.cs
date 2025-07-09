@@ -7,8 +7,9 @@ namespace KitchenGame.Runtime
     {
         // References
         public PlayerStatus Status { get; private set; }
-        public PlayerInventoryManager Inventory { get; set; }
-        public FirstPersonController Movement { get; set; }
+        public PlayerInventoryManager Inventory { get; private set; }
+        public FirstPersonController Movement { get; private set; }
+        public PlayerStationsUI StationsUIs { get; private set; }
 
         private void Awake()
         {
@@ -16,6 +17,7 @@ namespace KitchenGame.Runtime
             Status = GetComponent<PlayerStatus>();
             Inventory = transform.parent.GetComponentInChildren<PlayerInventoryManager>();
             Movement = transform.parent.GetComponent<FirstPersonController>();
+            StationsUIs = GetComponent<PlayerStationsUI>();
         }
     }
 }

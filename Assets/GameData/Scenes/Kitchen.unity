@@ -150,12 +150,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1095669091775075035}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &71531137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3516294072219084928, guid: 1637b8f181b367b4b9839f328154f458,
-    type: 3}
-  m_PrefabInstance: {fileID: 1615024859}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &97180452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,7 +3310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionLabel: Abrir Grelha
-  uiPanel: {fileID: 71531137}
 --- !u!1001 &1598961013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3449,35 +3442,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 419593690634348333, guid: 1637b8f181b367b4b9839f328154f458,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.02
-      objectReference: {fileID: 0}
     - target: {fileID: 2840700716540194809, guid: 1637b8f181b367b4b9839f328154f458,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5661489375275780432, guid: 1637b8f181b367b4b9839f328154f458,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5836244189277061650, guid: 1637b8f181b367b4b9839f328154f458,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6063020469729606079, guid: 1637b8f181b367b4b9839f328154f458,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8192552906199758228, guid: 1637b8f181b367b4b9839f328154f458,
-        type: 3}
-      propertyPath: m_AspectRatio
-      value: 1.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

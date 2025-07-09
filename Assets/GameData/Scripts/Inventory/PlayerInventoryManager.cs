@@ -7,6 +7,9 @@ namespace KitchenGame.Runtime
 {
     public class PlayerInventoryManager : MonoBehaviour, IItemContainer
     {
+        [Header("UI References")]
+        [SerializeField] RectTransform inventoryHolder;
+
         [Header("Slots")]
         [SerializeField] GameObject slotsHolder;
         List<SlotBase> slots = new();
@@ -24,6 +27,9 @@ namespace KitchenGame.Runtime
             slots = slotsHolder.GetComponentsInChildren<SlotBase>().ToList();
             ui = GetComponent<InventoryUI>();
             maxSlots = slots.Count;
+
+            // Initial values
+            inventoryHolder.gameObject.SetActive(true);
 
             // Subscribe events
             SlotBase.OnSlotClear.AddListener(OnSlotClear);

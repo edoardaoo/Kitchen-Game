@@ -33,6 +33,12 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        if (controller.Status.ShouldShowCursor)
+        {
+            ClearItemNameText();
+            return;
+        }
+
         Raycast();
     }
 

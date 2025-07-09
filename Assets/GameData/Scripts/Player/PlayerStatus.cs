@@ -6,12 +6,13 @@ namespace KitchenGame.Runtime
     public class PlayerStatus : MonoBehaviour
     {
         // Flags
-        public bool IsInteracting { get; private set; }
-        public bool IsPaused { get; private set; }
-        public bool IsInInventory { get; private set; }
+        [field: SerializeField] public bool IsInteracting { get; private set; }
+        [field: SerializeField] public bool IsPaused { get; private set; }
+        [field: SerializeField] public bool IsInInventory { get; private set; }
 
         // Status
         public bool IsInputBlocked => IsPaused || IsInInventory || IsInteracting;
+        public bool ShouldShowCursor => IsPaused || IsInInventory || IsInteracting;
 
         public Action OnStatusChanged;
 
@@ -22,6 +23,9 @@ namespace KitchenGame.Runtime
         {
             // Get references
             controller = GetComponent<PlayerController>();
+
+            // Initial values
+            UpdateCursorVisibility();
         }
 
         public void SetInteracting(bool value)
@@ -51,15 +55,15 @@ namespace KitchenGame.Runtime
 
         private void UpdateCursorVisibility()
         {
-            bool shouldShowCursor = IsPaused || IsInInventory || IsInteracting;
-            Cursor.visible = shouldShowCursor;
-            Cursor.lockState = shouldShowCursor ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = ShouldShowCursor;
+            Cursor.lockState = ShouldShowCursor ? CursorLockMode.None : CursorLockMode.Locked;
         }
 
         private void UpdatePlayerMovement()
         {
-            controller.Movement.playerCanMove = IsInputBlocked;
-            controller.Movement.cameraCanMove = IsInputBlocked;
+            controller.Movement.playerCanMove = !IsInputBlocked;
+            controller.Movement.cameraCanMove = !IsInputBlocked;
+            controller.Movement.CrosshairObject.enabled = !IsInputBlocked;
         }
     }
 }
