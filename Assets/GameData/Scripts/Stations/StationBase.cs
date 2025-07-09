@@ -9,18 +9,17 @@ namespace KitchenGame.Runtime
 
         protected bool isInUse = false;
 
-        public abstract void Interact(PlayerInventoryManager player);
+        public abstract void Interact(PlayerController player);
 
         public string GetInteractionLabel()
         {
             return interactionLabel;
         }
 
-        public virtual void ExitStation(PlayerInventoryManager player)
+        public virtual void ExitStation(PlayerController player)
         {
             isInUse = false;
-            if (player.TryGetComponent(out PlayerStatus status))
-                status.SetInteracting(false);
+            player.Status.SetInteracting(false);
         }
     }
 }

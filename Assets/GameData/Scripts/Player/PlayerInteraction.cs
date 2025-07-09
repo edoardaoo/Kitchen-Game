@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     // Internal values
     Camera cam;
     IInteractable currInteraction;
-    PlayerInventoryManager playerInventory;
+    PlayerController controller;
 
     // Consts
     private const string InteractionInputText = "(E)";
@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
         // Get references
         cam = Camera.main;
-        playerInventory = transform.parent.GetComponentInChildren<PlayerInventoryManager>();
+        controller = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -62,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour
             if (currInteraction == null)
                 return;
 
-            currInteraction.Interact(playerInventory);
+            currInteraction.Interact(controller);
         }        
     }
 

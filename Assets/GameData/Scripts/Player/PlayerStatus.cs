@@ -16,12 +16,12 @@ namespace KitchenGame.Runtime
         public Action OnStatusChanged;
 
         // References
-        FirstPersonController playerController;
+        PlayerController controller;
 
-        private void Awake()
+        private void Start()
         {
             // Get references
-            playerController = GetComponent<FirstPersonController>();
+            controller = GetComponent<PlayerController>();
         }
 
         public void SetInteracting(bool value)
@@ -58,8 +58,8 @@ namespace KitchenGame.Runtime
 
         private void UpdatePlayerMovement()
         {
-            playerController.playerCanMove = IsInputBlocked;
-            playerController.cameraCanMove = IsInputBlocked;
+            controller.Movement.playerCanMove = IsInputBlocked;
+            controller.Movement.cameraCanMove = IsInputBlocked;
         }
     }
 }

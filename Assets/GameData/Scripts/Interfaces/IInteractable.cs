@@ -2,6 +2,6 @@ using KitchenGame.Runtime;
 
 public interface IInteractable
 {
-    void Interact(PlayerInventoryManager player);
+    void Interact(PlayerController player);
     string GetInteractionLabel(); // Ex: "Open Grill", "Use Oven"
 }

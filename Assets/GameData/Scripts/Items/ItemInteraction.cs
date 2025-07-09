@@ -19,12 +19,12 @@ namespace KitchenGame.Cooking
             iItem = new(itemInfo);
         }
 
-        public void Interact(PlayerInventoryManager player)
+        public void Interact(PlayerController player)
         {
             if (!canPick)
                 return;
 
-            IItemContainer container = player.GetComponent<IItemContainer>();
+            IItemContainer container = player.Inventory;
 
             (bool wasAdded, int remainingStacks) = ItemContainerUtils.AddItem(container, iItem, stacks);
             stacks = remainingStacks;
