@@ -1,6 +1,6 @@
 using System;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     [Serializable]
     public class SlotItem

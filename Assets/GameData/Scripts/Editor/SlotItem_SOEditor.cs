@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     [CustomEditor(typeof(SlotItem_SO), true)]
     public class SlotItem_SOEditor : Editor

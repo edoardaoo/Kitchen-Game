@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     public interface IItemContainer
     {

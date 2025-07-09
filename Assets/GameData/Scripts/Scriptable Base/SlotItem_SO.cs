@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     [CreateAssetMenu(fileName = "ItemDisplay", menuName = "Items/Item Display")]
     public class SlotItem_SO : ScriptableObject

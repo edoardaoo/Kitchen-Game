@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     public static class ItemContainerUtils
     {

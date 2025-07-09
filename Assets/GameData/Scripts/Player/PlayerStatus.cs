@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace KitchenGame.Player
+namespace KitchenGame.Runtime
 {
     public class PlayerStatus : MonoBehaviour
     {

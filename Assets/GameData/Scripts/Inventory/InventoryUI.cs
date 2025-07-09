@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     public class InventoryUI : MonoBehaviour
     {

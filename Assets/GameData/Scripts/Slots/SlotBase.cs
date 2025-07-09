@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using TMPro;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     public class SlotBase : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {

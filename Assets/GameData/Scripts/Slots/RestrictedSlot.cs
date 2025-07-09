@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace KitchenGame.Inventory
+namespace KitchenGame.Runtime
 {
     public class RestrictedSlot : SlotBase
     {
